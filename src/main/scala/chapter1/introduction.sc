@@ -16,10 +16,10 @@ object Printable {
 }
 
 object PrintableSyntax { // This is just for nice syntax
-implicit class PrintableOps[A] (a: A) {
-  def format(implicit printable: Printable[A]): String = printable.format(a)
-  def print(implicit printable: Printable[A]): Unit = Printable.print(a)
-}
+  implicit class PrintableOps[A] (a: A) {
+    def format(implicit printable: Printable[A]): String = printable.format(a)
+    def print(implicit printable: Printable[A]): Unit = Printable.print(a)
+  }
 }
 
 import PrintableInstaces._

@@ -1,5 +1,9 @@
 package chapter2
 
-class Main {
-
+object Main {
+  def main(args: Array[String]): Unit = {
+    List(true,true,true,false,false,false).permutations.foreach(permList => {
+      println(Monoids.isAssociative[Boolean](permList)(Monoids.BooleanOrMonoid))
+    })
+  }
 }

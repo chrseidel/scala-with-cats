@@ -12,7 +12,7 @@ trait Monad[M[_]] {
 ## Monad Laws
 * **Left identity** `pure(a).flatMap(f) == f(a)`
 * **Right identity** `m.flatMap(pure) == m`
-* **Associativity** ``m.flatMap(f).flatMap(g) == m.flatMap(x => f(x).flatMap(g))
+* **Associativity** `m.flatMap(f).flatMap(g) == m.flatMap(x => f(x).flatMap(g))`
 
 ## Monads are functors (pure & map)
 ```

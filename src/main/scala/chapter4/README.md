@@ -43,7 +43,7 @@ implicit object FutureMonad extends Monad[Future] {
 	def flatMap[A,B](f: A => Future[B]) = { fa: Future[A] => 
 		val p = Promise[B]()
 		fa.onComplete({
-			case Success(a) => p.success(a)
+			case Success(a) => p.success(f(a))
 			case Failure(t) => p.failure(t)
 		})
 		p.future

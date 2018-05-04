@@ -18,7 +18,7 @@ trait Monad[M[_]] {
 ```
 trait Monad[M[_]] {
 	def pure[A]: A => M[A]
-	def flatMap[A,B](f: A => M[B]): M[B] => M[B]
+	def flatMap[A,B](f: A => M[B]): M[A] => M[B]
 
 	// we can define map by only using pure and flatMap
 	def map[A,B](f: A => B): M[A] => M[B] = ma: M[A] => flatMap(f andThen pure)(ma)
